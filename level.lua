@@ -17,12 +17,16 @@ local Level = {
 	}
 }
 
-function Level:setPoints()
-	self.receivePoint.pos.x = love.math.random(0, self.size.width)
-	self.receivePoint.pos.y = love.math.random(0, self.size.height)
+function Level:setPoints(receive, deliver)
+	if receive or true then
+		self.receivePoint.pos.x = love.math.random(0, self.size.width)
+		self.receivePoint.pos.y = love.math.random(0, self.size.height)
+	end
 
-	self.deliverPoint.pos.x = love.math.random(0, self.size.width)
-	self.deliverPoint.pos.y = love.math.random(0, self.size.height)
+	if deliver or true then
+		self.deliverPoint.pos.x = love.math.random(0, self.size.width)
+		self.deliverPoint.pos.y = love.math.random(0, self.size.height)
+	end
 
 	local minDistance = self.size.width / 1.5
 	local dis = (Fovy:distance2D(

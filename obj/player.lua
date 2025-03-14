@@ -203,6 +203,7 @@ function Player:deliverPizza()
 		print("DELIVERED PIZZA")
 
 		self:setPizza(false)
+		Level:setPoints(false, true)
 		Level.receivePoint.hasPizza = true
 	end
 end
